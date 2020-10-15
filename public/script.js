@@ -1,6 +1,10 @@
 const socket = io('/');
 const videoGrid = document.getElementById('video-grid');
-// Make an instance of Peerjs
+
+/**
+ * PeerJs
+ * https://peerjs.com/
+ */
 const myPeer = new Peer(undefined, {
 	host: '/',
 	port: '3001',
@@ -8,9 +12,10 @@ const myPeer = new Peer(undefined, {
 
 const myVideo = document.createElement('video');
 myVideo.muted = true;
+myVideo.className = 'video';
 const peers = {};
 
-// This will give the browser access to the microphone and camera
+// navigator.mediaDevices.getUserMedia() will give the browser access to the microphone and camera
 navigator.mediaDevices.getUserMedia({
 	video: true,
 	audio: true
@@ -39,7 +44,7 @@ myPeer.on('open', id => {
 });
 
 /**
- * addVideoStream is a function that receive the peers camera images and makes the video play when displayed.
+ * addVideoStream() receive the peers camera images and makes the video play when displayed.
  * and it appends the video to the Grid in views/room.ejs
  */
 function addVideoStream(video, stream) {
@@ -51,7 +56,7 @@ function addVideoStream(video, stream) {
 }
 
 /**
- * connectToNewUser creates a call object to listen to the events. within this function we call on addVideoStream()
+ * connectToNewUser() creates a call object to listen to the events. within this function we call on addVideoStream()
  * when clossing the call, we remove the video element.
  */
 function connectToNewUser(userId, stream) {

@@ -3,6 +3,10 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+/** 
+ * BodyParces is a package that makes it able to get data from POST form
+ * https://www.npmjs.com/package/body-parser
+ */
 const bodyParser = require('body-parser')
 app.use( bodyParser.json() );
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -10,6 +14,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+/******** Routes ***********/
 app.get('/', (req, res) => {
 	res.render('waiting-room');
 });
@@ -22,6 +27,10 @@ app.get('/:room', (req, res) => {
 	res.render('room', { roomId: req.params.room });
 });
 
+/** 
+ * Socket.io is used to interact with public/script.js
+ * https://www.npmjs.com/package/socket.io
+ */
 io.on('connection', socket => {
 	socket.on('join-room', (roomId, userId) => {
 		socket.join(roomId);
