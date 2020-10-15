@@ -4,11 +4,19 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const { v4: uuidV4 } = require('uuid');
 
+const bodyParser = require('body-parser')
+app.use( bodyParser.json() );
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-	res.redirect(`/${uuidV4()}`);
+	res.render('waiting-room');
+});
+
+app.post('/join-room', urlencodedParser, (req, res) => {
+	res.redirect(`/${req.body.input}`)
 });
 
 app.get('/:room', (req, res) => {
