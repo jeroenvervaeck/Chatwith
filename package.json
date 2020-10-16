@@ -2,16 +2,24 @@
   "name": "chatwith",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "12.x"
+  },
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeroenvervaeck/Chatwith.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Jeroen Vervaeck",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jeroenvervaeck/Chatwith/issues"
@@ -24,6 +32,8 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "got": "^11.3.0",
+    "tape": "^4.7.0"
   }
 }

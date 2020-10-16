@@ -48,10 +48,6 @@ input:focus, textarea:focus, select:focus{
 	outline: none;
 }
 
-.wrapper {
-	margin: 100px 0;
-}
-
 footer {
 	position: absolute;
 	bottom: 0;

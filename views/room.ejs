@@ -7,6 +7,9 @@
 	<script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="script.js" defer></script>
+	<script>
+		const ROOM_ID = '<%- roomId %>';
+	</script>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
@@ -14,12 +17,10 @@
 	<div class="wrapper">
 		<h1>ChatWithNMD</h1>
 		<h2>You are in room:<br> <%- roomId %></h2> 
+		<a id="back" href="/"><p>x</p></a>
 	</div>
 	
 	<div id="video-grid"></div>
-
-	<a id="back" href="/"><p>x</p></a>
-
 
 	<footer>
 		<p><a href="https://jeroenvervaeck.github.io/">Documentation</a></p>
