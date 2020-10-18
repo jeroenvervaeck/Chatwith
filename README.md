@@ -2,11 +2,9 @@
 
 start localserver
 
-
-npm run devStart
+`npm run devStart`
 
 
 start a server with peerjs 
 
-
-peerjs --port 3001
+`peerjs --port 3001`
